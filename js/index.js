@@ -5,6 +5,7 @@
 const links = document.querySelectorAll('a')
 
 links.forEach( item => {
+    
     item.addEventListener('mouseover', () => {
         item.style.color = '#17A2B8'
     })
@@ -20,7 +21,7 @@ const page = document.querySelector('body')
 
 const h2 = document.querySelector('h2')
 
-h2.addEventListener('click', pageClickCB)
+page.addEventListener('click', pageClickCB)
 
 //callback function
 let x = true
@@ -65,7 +66,7 @@ window.addEventListener('load', () => {
 
 //7: focus add border to links
 
-const images = document.querySelectorAll('img')
+
 
 links.forEach( item => {
     item.addEventListener('focus', () => {
@@ -75,6 +76,32 @@ links.forEach( item => {
         item.style.border = 'none'
     })
 })
+
+//8: scroll switch images
+const contentImages = document.querySelectorAll('.img-content img')
+
+window.addEventListener('scroll', () => {
+    contentImages[0].src = 'img/fun.jpg'
+    contentImages[1].src = 'img/adventure.jpg'
+})
+
+//9: keydown changes logo color
+document.addEventListener('keydown', () => {
+    logo.style.color = '#17A2B8'
+})
+
+//10 : resize changes logo color back
+window.addEventListener('resize', () => {
+    logo.style.color = 'crimson'
+})
+
+
+//nested events w/ stopPropagation
+h2.addEventListener('click', () => {
+    h2.style.backgroundColor = '#17A2B8'
+    event.stopPropagation()
+})
+
 
 
 
